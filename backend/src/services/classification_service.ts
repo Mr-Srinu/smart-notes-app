@@ -1,7 +1,6 @@
 export function classifyTask(title: string, description = '') {
   const text = `${title} ${description}`.toLowerCase();
 
-  // ---------------- CATEGORY ----------------
   let category: 'scheduling' | 'finance' | 'technical' | 'safety' | 'general' =
     'general';
 
@@ -15,7 +14,6 @@ export function classifyTask(title: string, description = '') {
     category = 'safety';
   }
 
-  // ---------------- PRIORITY ----------------
   let priority: 'high' | 'medium' | 'low' = 'low';
 
   if (/(urgent|asap|immediately|today|critical|emergency)/i.test(text)) {
@@ -24,7 +22,7 @@ export function classifyTask(title: string, description = '') {
     priority = 'medium';
   }
 
-  // ---------------- ENTITY EXTRACTION ----------------
+
   const dates: string[] = [];
   if (/(today|tomorrow|next week|monday|tuesday|wednesday|thursday|friday)/i.test(text)) {
     dates.push(
@@ -49,7 +47,6 @@ export function classifyTask(title: string, description = '') {
       /\b(schedule|pay|fix|inspect|review|submit|install|call|email|prepare)\b/gi
     ) || [];
 
-  // ---------------- SUGGESTED ACTIONS ----------------
   const suggestedActionsMap: Record<string, string[]> = {
     scheduling: [
       'Block calendar',
@@ -90,3 +87,4 @@ export function classifyTask(title: string, description = '') {
     suggested_actions: suggestedActionsMap[category] || [],
   };
 }
+
