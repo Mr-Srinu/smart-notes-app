@@ -115,9 +115,9 @@ A polished, single-screen dashboard experience.
 ---
 
 ## 📸 Screenshots
-| Dashboard | Task Form |
-| :---: | :---: |
-| ![Dashboard](https://via.placeholder.com/200x400?text=Dashboard+Screen) | ![Form](https://via.placeholder.com/200x400?text=Creation+Sheet) |
+| Dashboard | Task Form | Light Mode |
+| :---: | :---: | :---: |
+| ![Dashboard](https://raw.githubusercontent.com/Mr-Srinu/smart-notes-app/main/Screenshot%202025-12-29%20002301.png) | ![Form](https://raw.githubusercontent.com/Mr-Srinu/smart-notes-app/main/Screenshot%202025-12-29%20002410.png) | ![Light Mode](https://raw.githubusercontent.com/Mr-Srinu/smart-notes-app/main/Screenshot%202025-12-29%20003450.png) |
 
 ---
 
@@ -129,6 +129,6 @@ A polished, single-screen dashboard experience.
 ---
 
 ## 🔮 Future Improvements
-* **LLM Integration:** Moving from keyword-based to AI agent frameworks (LangGraph) for better context awareness.
+* **Search Optimization:** More filteriazed Search Optimizations.
 * **Real-time Updates:** Implementing Supabase subscriptions for instant dashboard refreshes.
-* **Analytics Dashboard:** Deeper visual insights into task completion rates.
+* **Real-time Notifications:** Using SNS, firebase Messaging etc. can send Realtime Notifications regarding Schedules, Next tasks, updates.
