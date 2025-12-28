@@ -1,6 +1,6 @@
 import * as controller from '../controllers/task_controller';
 
-console.log('CONTROLLER EXPORTS:', controller);
+// console.log('CONTROLLER EXPORTS:', controller);
 
 import { Router } from 'express';
 
@@ -21,4 +21,5 @@ router.patch('/:id', updateTask);
 router.delete('/:id', deleteTask);
 
 export default router;
+
 
