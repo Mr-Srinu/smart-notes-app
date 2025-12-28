@@ -6,7 +6,11 @@ export function apiKeyMiddleware(
   res: Response,
   next: NextFunction
 ) {
-  if (req.method === 'OPTIONS') {
+  if (
+    req.method === 'OPTIONS' ||
+    req.path === '/' ||
+    req.path === '/health'
+  ) {
     return next();
   }
 
