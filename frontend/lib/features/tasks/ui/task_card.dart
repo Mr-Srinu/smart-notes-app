@@ -18,7 +18,6 @@ class TaskCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // HEADER
             Row(
               children: [
                 Expanded(
@@ -33,7 +32,6 @@ class TaskCard extends StatelessWidget {
 
             const SizedBox(height: 8),
 
-            // STATUS + PRIORITY
             Row(
               children: [
                 _StatusPill(task.status, statusClr),
@@ -42,7 +40,6 @@ class TaskCard extends StatelessWidget {
               ],
             ),
 
-            // SUGGESTED ACTIONS
             if (task.suggestedActions.isNotEmpty) ...[
               const SizedBox(height: 16),
               Wrap(
@@ -193,3 +190,4 @@ class _PriorityDot extends StatelessWidget {
     );
   }
 }
+
