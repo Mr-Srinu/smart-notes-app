@@ -32,7 +32,6 @@ class TaskNotifier extends StateNotifier<AsyncValue<List<Task>>> {
     }
   }
 
-  // 🔎 Filters API (UI calls these)
   void setSearch(String v) {
     _searchQuery = v;
     _applyFilters();
@@ -80,3 +79,4 @@ class TaskNotifier extends StateNotifier<AsyncValue<List<Task>>> {
     state = AsyncData(filtered);
   }
 }
+
