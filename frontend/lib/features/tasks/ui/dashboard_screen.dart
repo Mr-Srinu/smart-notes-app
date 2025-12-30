@@ -34,7 +34,6 @@ class DashboardScreen extends ConsumerWidget {
           ),
         ],
 
-        // 🔍 SEARCH MOVED INTO APP BAR
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(64),
           child: Padding(
@@ -59,8 +58,6 @@ class DashboardScreen extends ConsumerWidget {
       body: Column(
         children: [
           const OfflineBanner(),
-
-          // 🎯 BEAUTIFIED FILTER BAR
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             child: SingleChildScrollView(
@@ -102,7 +99,6 @@ class DashboardScreen extends ConsumerWidget {
             ),
           ),
 
-          // 📋 TASK LIST
           Expanded(
             child: state.when(
               loading: () =>
@@ -173,3 +169,4 @@ class _FilterPill extends StatelessWidget {
     );
   }
 }
+
