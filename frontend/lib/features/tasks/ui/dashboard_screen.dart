@@ -19,6 +19,7 @@ class DashboardScreen extends ConsumerWidget {
         scrolledUnderElevation: 0,
         elevation: 0,
         actions: [
+
           Consumer(
             builder: (_, ref, __) {
               final mode = ref.watch(themeModeProvider);
@@ -34,6 +35,7 @@ class DashboardScreen extends ConsumerWidget {
           ),
         ],
 
+        // 🔍 SEARCH
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(64),
           child: Padding(
@@ -58,6 +60,7 @@ class DashboardScreen extends ConsumerWidget {
       body: Column(
         children: [
           const OfflineBanner(),
+
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             child: SingleChildScrollView(
@@ -86,7 +89,8 @@ class DashboardScreen extends ConsumerWidget {
                     icon: Icons.event,
                     label: 'Scheduling',
                     onTap: () =>
-                        ref.read(taskProvider.notifier).setCategory('scheduling'),
+                        ref.read(taskProvider.notifier)
+                            .setCategory('scheduling'),
                   ),
                   _FilterPill(
                     icon: Icons.clear_all,
@@ -98,7 +102,7 @@ class DashboardScreen extends ConsumerWidget {
               ),
             ),
           ),
-
+          
           Expanded(
             child: state.when(
               loading: () =>
@@ -109,10 +113,13 @@ class DashboardScreen extends ConsumerWidget {
                 if (tasks.isEmpty) {
                   return const Center(child: Text('No tasks found'));
                 }
+
                 return RefreshIndicator(
-                  onRefresh: () =>
-                      ref.read(taskProvider.notifier).loadTasks(),
+                  onRefresh: () async {
+                    await ref.read(taskProvider.notifier).loadTasks();
+                  },
                   child: ListView.builder(
+                    physics: const AlwaysScrollableScrollPhysics(),
                     padding: const EdgeInsets.all(16),
                     itemCount: tasks.length,
                     itemBuilder: (_, i) => TaskCard(task: tasks[i]),
@@ -162,11 +169,11 @@ class _FilterPill extends StatelessWidget {
         icon: Icon(icon, size: 18),
         label: Text(label),
         style: OutlinedButton.styleFrom(
-          shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
         ),
       ),
     );
   }
 }
-
